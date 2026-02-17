@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# Reaction Speed Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
 
-Currently, two official plugins are available:
+Test your reflexes with 3 different game modes! Track your performance over time with detailed statistics and benchmarks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[Play Now](https://saharhalili95.github.io/reaction-speed-test/)**
 
-## React Compiler
+## Game Modes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Reaction Time
+Classic reaction test - wait for the screen to turn green, then click as fast as you can. Measures your average over 5 rounds with millisecond precision.
 
-## Expanding the ESLint configuration
+### Target Click
+An aim and speed test - click 15 targets that appear at random positions as quickly as possible. Your score is the average time per target.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Number Sequence
+Find and click numbers 1-25 in order on a shuffled 5x5 grid. Tests visual search speed and pattern recognition.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Performance Benchmarks** - Get rated from "Incredible" to "Sleepy" with color-coded results
+- **Persistent Statistics** - Best time, average, last 10 average, and total games tracked per mode
+- **Visual History** - Bar chart of your last 20 results, color-coded by performance tier
+- **Local Storage** - All stats persist across browser sessions
+- **Dark Theme** - Sleek dark UI designed for focus
+- **Responsive Design** - Works on desktop and mobile
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Benchmarks
+
+| Rating | Reaction Time | Target Click | Number Sequence |
+|--------|:---:|:---:|:---:|
+| Incredible | < 150ms | < 350ms | < 8s |
+| Fast | < 220ms | < 500ms | < 12s |
+| Average | < 300ms | < 650ms | < 18s |
+| Slow | < 400ms | < 800ms | < 25s |
+
+## Tech Stack
+
+- **Framework:** React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Build Tool:** Vite 7
+- **Deployment:** GitHub Pages
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/
+│   ├── ReactionTest.tsx    # Reaction time game mode
+│   ├── TargetTest.tsx      # Target click game mode
+│   ├── SequenceTest.tsx    # Number sequence game mode
+│   └── StatsPanel.tsx      # Statistics and history chart
+├── hooks/
+│   └── useHistory.ts       # localStorage persistence hook
+├── types/
+│   └── game.ts             # Type definitions and benchmarks
+├── App.tsx                 # Main app with mode selection
+└── index.css               # Tailwind styles
+```
+
+## License
+
+MIT
