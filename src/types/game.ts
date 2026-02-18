@@ -21,6 +21,13 @@ export interface Stats {
   totalGames: number
 }
 
+export interface LeaderboardEntry {
+  playerName: string
+  time: number
+  date: string
+  mode: GameMode
+}
+
 export const BENCHMARKS = {
   reaction: [
     { label: 'Incredible', max: 150, color: '#a855f7' },
