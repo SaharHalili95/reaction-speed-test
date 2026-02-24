@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import type { GamePhase, TargetPosition } from '../types/game'
 import { getBenchmark } from '../types/game'
+import ShareResultsCard from './ShareResultsCard'
 
 interface Props {
   onResult: (time: number) => void
@@ -22,6 +23,7 @@ export default function TargetTest({ onResult }: Props) {
   const [hitCount, setHitCount] = useState(0)
   const [times, setTimes] = useState<number[]>([])
   const [avgTime, setAvgTime] = useState(0)
+  const [showShare, setShowShare] = useState(false)
   const startRef = useRef(0)
 
   useEffect(() => {
@@ -129,10 +131,31 @@ export default function TargetTest({ onResult }: Props) {
             ))}
           </div>
 
+          <div className="flex gap-3 justify-center mb-4">
+            <button
+              className="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-full text-lg font-semibold transition-colors"
+              onClick={(e) => { e.stopPropagation(); setShowShare(true) }}
+            >
+              📤 Share Score
+            </button>
+          </div>
+
           <div className="bg-white/20 px-8 py-3 rounded-full text-xl font-semibold">
             Click to Play Again
           </div>
         </div>
+
+        {showShare && benchmark && (
+          <ShareResultsCard
+            gameMode="Target Practice"
+            bestScore={Math.min(...times)}
+            averageScore={avgTime}
+            benchmark={benchmark.label}
+            benchmarkColor={benchmark.color}
+            attempts={TOTAL_TARGETS}
+            onClose={() => setShowShare(false)}
+          />
+        )}
       </div>
     )
   }
