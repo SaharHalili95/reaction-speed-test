@@ -271,7 +271,7 @@ export default function TrainingMode({ results }: Props) {
                 </div>
 
                 {/* Line chart using divs */}
-                {chartData.map((day, i) => {
+                {chartData.map((day) => {
                   const range = chartMax - chartMin || 1
                   const heightPct = ((day.bestTime - chartMin) / range) * 100
                   const benchmark = getBenchmark('reaction', day.bestTime)
