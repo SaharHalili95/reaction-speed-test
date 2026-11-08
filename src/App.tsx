@@ -97,7 +97,7 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-white/10 mt-8">
         <div className="max-w-4xl mx-auto px-4 py-4 text-center text-white/30 text-sm">
-          Built with React + TypeScript + Tailwind CSS
+          © 2025-2026 Sahar Halili · Built with React + TypeScript + Tailwind CSS
         </div>
       </footer>
     </div>
